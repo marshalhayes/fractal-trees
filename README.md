@@ -2,6 +2,8 @@
 
 Fractal trees, the beginnings of an art project
 
+![](images/screenshot.png)
+
 ## Upcoming features (things to think about)
 
 - Allow users to play with angles, colors, lengths
