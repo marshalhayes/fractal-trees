@@ -3,7 +3,7 @@ var count = 0;
 var leaves = [];
 
 function setup() {
-  var canvas = createCanvas(600, 600);
+  var canvas = createCanvas(windowWidth, 600);
   canvas.parent('canvas');
   canvas.mousePressed(canvasMousePressed);
 
