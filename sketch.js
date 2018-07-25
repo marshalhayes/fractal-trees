@@ -7,8 +7,7 @@ var count = 0;
 function setup() {
   var canvas = createCanvas(windowWidth, 500);
   canvas.parent('canvas');
-
-  angle = random(0, PI/2);
+  angle = random(0.25, PI/2);
   tree[0] = new Branch(createVector(width/2, height), createVector(width/2, height-100));
 }
 
