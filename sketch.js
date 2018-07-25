@@ -1,22 +1,24 @@
 var tree = [];
-var count = 0;
 var leaves = [];
 
-function setup() {
-  var canvas = createCanvas(windowWidth, 600);
-  canvas.parent('canvas');
-  canvas.mousePressed(canvasMousePressed);
+var angle;
+var count = 0;
 
-  tree[0] = new Branch(createVector(width/2, height), createVector(width/2, height-100));;
+function setup() {
+  var canvas = createCanvas(windowWidth, 500);
+  canvas.parent('canvas');
+
+  angle = random(0, PI/2);
+  tree[0] = new Branch(createVector(width/2, height), createVector(width/2, height-100));
 }
 
-function canvasMousePressed() {
+function buildTree() {
   if (count === 6) { return; } // Stop drawing the tree at the leaves
 
   for (let i = tree.length-1; i >= 0; i--) {
     if (!tree[i].finished) {
-      tree.push(tree[i].branch(PI/4));
-      tree.push(tree[i].branch(-PI/6));
+      tree.push(tree[i].branch(angle));
+      tree.push(tree[i].branch(-angle));
     }
   }
   count++;
@@ -34,15 +36,17 @@ function canvasMousePressed() {
 function draw() {
   background(51);
 
+  buildTree();
   for (let i = 0; i < tree.length; i++) {
     tree[i].show();
-    // tree[i].jitter();
   }
 
   for (let i = 0; i < leaves.length; i++) {
     fill(139, 0, 139);
     noStroke();
     ellipse(leaves[i].x, leaves[i].y, 8, 8);
-    // leaves[i].y += random(0, 2);
+    leaves[i].y += random(0, 3);
+    leaves[i].x -= random(0, 1);
+    leaves[i].x += random(0, 1);
   }
 }

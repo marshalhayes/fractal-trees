@@ -4,14 +4,15 @@ function Branch(begin, end) {
 
   this.finished = false;
 
-  this.jitter = () => {
-    this.end.x += random(-1, 1);
-    this.end.y += random(-1, 1);
+  this.jitter = (a, b) => {
+    this.end.x += random(a, b);
+    this.end.y += random(a, b);
   }
 
   this.show = () => {
     stroke(255);
     line(this.begin.x, this.begin.y, this.end.x, this.end.y);
+    strokeWeight(4);
   }
 
   this.branch = (angle = 0) => {
